@@ -33,4 +33,10 @@ contract TestContract is Test {
         vm.expectRevert();
         c.transferFrom(address(this), 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4 , 30);
     }
+
+    function test_tranferFail() public {
+        c.mint(address(this), 100);
+        vm.expectRevert();
+        c.transfer(0x5B38Da6a701c568545dCfcB03FcB875f56beddC4, 500);
+    }
 }
