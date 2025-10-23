@@ -26,5 +26,10 @@ contract TestContract is Test {
         c.transfer(0x5B38Da6a701c568545dCfcB03FcB875f56beddC4,50);
         assertEq(c.balanceOf(address(this)), 50, "ok");
         assertEq(c.balanceOf(0x5B38Da6a701c568545dCfcB03FcB875f56beddC4), 50, "ok");
+
+        vm.prank(0x5B38Da6a701c568545dCfcB03FcB875f56beddC4);
+        c.transfer(address(this),50);
+        assertEq(c.balanceOf(address(this)), 100, "ok");
+        assertEq(c.balanceOf(0x5B38Da6a701c568545dCfcB03FcB875f56beddC4), 0, "ok");
     }
 }
